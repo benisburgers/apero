@@ -64,7 +64,7 @@ header .brand .brand-right img {
   font-size: 21px;
   font-weight: 300;
   margin: 30px 0;
-  color: rgba(0, 0, 0, 0.38);
+  color: black;
 }
 .landing-page .date-and-time,
 .landing-page .location {
@@ -79,7 +79,7 @@ header .brand .brand-right img {
 .landing-page .date-and-time .text span,
 .landing-page .location .text span {
   display: block;
-  color: rgba(0, 0, 0, 0.38);
+  color: black;
   font-family: Helvetica;
   font-weight: 300;
   font-size: 18px;
@@ -95,7 +95,7 @@ header .brand .brand-right img {
   font-size: 21px;
   font-weight: 300;
   text-align: center;
-  color: rgba(0, 0, 0, 0.38);
+  color: black;
 }
 .signup-page .form-container {
   margin-top: 60px;
@@ -140,7 +140,7 @@ header .brand .brand-right img {
 .signup-page .entourage .visible_checkbox img {
   background-color: white;
   border: 2px solid #009ADA;
-  border-radius: 10%;
+  border-radius: 4px;
   display: inline-block;
   width: 18px;
   vertical-align: bottom;
@@ -154,6 +154,31 @@ header .brand .brand-right img {
 }
 .signup-page button {
   margin-top: 60px;
+}
+
+.confirmation-page {
+  margin: 60px 0;
+}
+.confirmation-page .text-container {
+  margin: 45px 0;
+}
+.confirmation-page .text-container span {
+  display: inline-block;
+  color: black;
+  font-family: Helvetica;
+  font-size: 18px;
+  font-weight: 300;
+  margin: 18px 0;
+}
+.confirmation-page #personal-information span {
+  margin: 0;
+}
+.confirmation-page #add-to-calendar {
+  display: flex;
+  align-items: center;
+}
+.confirmation-page #add-to-calendar img {
+  margin-right: 5px;
 }
 
 /*# sourceMappingURL=main.css.map */
