@@ -1,3 +1,18 @@
+h1, span, button, input, label {
+  font-family: Helvetica;
+  font-weight: 300;
+  color: black;
+}
+
+button, h1 {
+  font-size: 21px;
+  text-align: center;
+}
+
+span, input, label {
+  font-size: 18px;
+}
+
 img {
   display: block;
 }
@@ -17,11 +32,7 @@ button {
   border-radius: 30px;
   background-color: #009ADA;
   color: #FFFFFF;
-  font-family: Helvetica;
-  font-size: 20px;
   letter-spacing: 0.29px;
-  text-align: center;
-  font-weight: 330;
   border: none;
   padding: 7px 0;
   transition: 0.2s;
@@ -60,11 +71,7 @@ header .brand .brand-right img {
   max-width: 100%;
 }
 .landing-page h1 {
-  font-family: Helvetica;
-  font-size: 21px;
-  font-weight: 300;
   margin: 30px 0;
-  color: black;
 }
 .landing-page .date-and-time,
 .landing-page .location {
@@ -79,10 +86,6 @@ header .brand .brand-right img {
 .landing-page .date-and-time .text span,
 .landing-page .location .text span {
   display: block;
-  color: black;
-  font-family: Helvetica;
-  font-weight: 300;
-  font-size: 18px;
   margin-left: 30px;
 }
 .landing-page button {
@@ -91,11 +94,6 @@ header .brand .brand-right img {
 
 .signup-page h1 {
   margin: 30px 0 60px 0;
-  font-family: Helvetica;
-  font-size: 21px;
-  font-weight: 300;
-  text-align: center;
-  color: black;
 }
 .signup-page .form-container {
   margin-top: 60px;
@@ -104,10 +102,6 @@ header .brand .brand-right img {
   display: block;
   width: 100%;
   margin-top: 15px;
-  font-family: Helvetica;
-  font-size: 18px;
-  font-weight: 300;
-  color: black;
   border: none;
   border-bottom: 1px solid #009ada;
 }
@@ -147,9 +141,6 @@ header .brand .brand-right img {
   transition: all 0.2s;
 }
 .signup-page .entourage .text {
-  font-family: Helvetica;
-  font-size: 18px;
-  font-weight: 300;
   color: #009ADA;
 }
 .signup-page button {
@@ -164,10 +155,6 @@ header .brand .brand-right img {
 }
 .confirmation-page .text-container span {
   display: inline-block;
-  color: black;
-  font-family: Helvetica;
-  font-size: 18px;
-  font-weight: 300;
   margin: 18px 0;
 }
 .confirmation-page #personal-information span {
@@ -179,6 +166,11 @@ header .brand .brand-right img {
 }
 .confirmation-page #add-to-calendar img {
   margin-right: 5px;
+  width: 18px;
+}
+.confirmation-page #add-to-calendar span {
+  color: #009ADA;
+  margin: 0;
 }
 
 /*# sourceMappingURL=main.css.map */
