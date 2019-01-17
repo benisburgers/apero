@@ -1,0 +1,112 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <!-- Place favicon.ico in the root directory -->
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+
+  <div class="screen">
+    <header>
+      <div class="brand">
+        <div class="brand-left">
+          <img src="assets/brand-left.png" alt="Company Brand">
+        </div>
+        <div class="brand-right">
+          <img src="assets/brand-right.jpg" alt="Company Logos">
+        </div>
+      </div>
+    </header>
+    <div class="content">
+
+      <section class="landing-page">
+        <img src="assets/garage.jpg" alt="Location" class="garage"/>
+        <div class="side-padding">
+          <h1>Anmeldung zum Neujahrsapéro</h1>
+          <div class="date-and-time">
+            <img src="assets/calendar-icon.svg" alt="calendar">
+            <div class="text">
+              <span>Donnerstag, 11. Januar</span>
+              <span>Ab 18.30 bis 22.00 Uhr</span>
+            </div>
+          </div>
+          <div class="location">
+            <img src="assets/map-pin.svg" alt="map pin">
+            <div class="text">
+              <span>Binelli Group Adliswil</span>
+              <span>Zürichstrasse 102</span>
+              <span>8134</span>
+              <span>Adliswil</span>
+            </div>
+          </div>
+          <button type="button" name="button">Ich nehme Teil</button>
+          <button type="button" name="button">Ich nehme Teil</button>
+        </div>
+      </section>
+
+      <section class="signup-page">
+        <div class="side-padding">
+          <h1>Ich nehme Teil</h1>
+          <div class="form-container">
+            <input type="text" name="name" placeholder="Vollständiger Name*" id="vname">
+            <input type="text" name="email" placeholder="Email*" id="email">
+            <input type="text" name="strasse" placeholder="Strasse" id="strasse" class="missing">
+            <input type="text" name="plz" placeholder="PLZ" id="plz" class="faulty">
+            <input type="text" name="ort" placeholder="Ort" id="ort">
+          </div>
+          <div class="entourage">
+            <input type="checkbox" name="entourage" id="entourage" class="hidden_checkbox">
+            <label for="entourage" class="visible_checkbox">
+              <img src="assets/checkbox_check.svg" alt="checkmark" id="checkmark">
+            </label>
+            <label for="entourage" class="text">Ich komme in Begleitung</label>
+            <div class="form-container">
+              <input type="text" name="name" placeholder="Vollständiger Name*" id="vname">
+              <input type="text" name="email" placeholder="Email*" id="email">
+            </div>
+          </div>
+          <button type="button" name="abschicken">Abschicken</button>
+        </div>
+      </section>
+
+      <section class="confirmation-page">
+        <section class="confirmation-positive">
+        </section>
+        <section class="confirmation-negative">
+        </section>
+      </section>
+    </div>
+  </div>
+
+  <!--[if lte IE 9]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+  <![endif]-->
+
+  <!-- Add your site or application content here -->
+  <script src="js/vendor/modernizr-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
+  <script src="js/plugins.js"></script>
+  <script src="js/main.js"></script>
+
+  <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+  <!--<script>
+    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+    ga('create', 'UA-XXXXX-Y', 'auto'); ga('send', 'pageview')
+  </script>
+  <script src="https://www.google-analytics.com/analytics.js" async defer></script>-->
+</body>
+
+</html>

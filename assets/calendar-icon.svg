@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="22px" height="22px" viewBox="0 0 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>43BD69BA-0026-4335-A073-9FAF48240EFB</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <path d="M19,3 L17,3 L17,2 C17,1.4 16.6,1 16,1 C15.4,1 15,1.4 15,2 L15,3 L9,3 L9,2 C9,1.4 8.6,1 8,1 C7.4,1 7,1.4 7,2 L7,3 L5,3 C3.3,3 2,4.3 2,6 L2,20 C2,21.7 3.3,23 5,23 L19,23 C20.7,23 22,21.7 22,20 L22,6 C22,4.3 20.7,3 19,3 Z M5,5 L7,5 L7,6 C7,6.6 7.4,7 8,7 C8.6,7 9,6.6 9,6 L9,5 L15,5 L15,6 C15,6.6 15.4,7 16,7 C16.6,7 17,6.6 17,6 L17,5 L19,5 C19.6,5 20,5.4 20,6 L20,9 L4,9 L4,6 C4,5.4 4.4,5 5,5 Z M19,21 L5,21 C4.4,21 4,20.6 4,20 L4,11 L20,11 L20,20 C20,20.6 19.6,21 19,21 Z" id="path-1"></path>
+    </defs>
+    <g id="Wireframe_Mobile" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Buttons-and-symbols" transform="translate(-832.000000, -160.000000)">
+            <g id="calendar-icon" transform="translate(831.000000, 159.000000)">
+                <g id="icon-/-calendar">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <use id="Mask" fill="#000000" fill-rule="nonzero" xlink:href="#path-1"></use>
+                    <g id="color-/-black" mask="url(#mask-2)" fill="#000000" fill-rule="evenodd">
+                        <rect id="Shape" x="0" y="0" width="24" height="24"></rect>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
