@@ -14,16 +14,24 @@ img {
 
 button {
   width: 100%;
-  border-radius: 15px;
+  border-radius: 30px;
   background-color: #009ADA;
   color: #FFFFFF;
   font-family: Helvetica;
   font-size: 20px;
   letter-spacing: 0.29px;
-  line-height: 24px;
   text-align: center;
   font-weight: 330;
   border: none;
+  padding: 7px 0;
+  transition: 0.2s;
+}
+button:hover {
+  background-color: #007BD4;
+}
+button:active {
+  background-color: #007BD4;
+  color: black;
 }
 
 header {
@@ -56,6 +64,7 @@ header .brand .brand-right img {
   font-size: 21px;
   font-weight: 300;
   margin: 30px 0;
+  color: rgba(0, 0, 0, 0.38);
 }
 .landing-page .date-and-time,
 .landing-page .location {
@@ -80,17 +89,16 @@ header .brand .brand-right img {
   margin: 15px 0;
 }
 
-.signup-page {
-  margin: 60px 0;
-}
 .signup-page h1 {
+  margin: 30px 0 60px 0;
   font-family: Helvetica;
   font-size: 21px;
   font-weight: 300;
   text-align: center;
+  color: rgba(0, 0, 0, 0.38);
 }
 .signup-page .form-container {
-  margin-top: 30px;
+  margin-top: 60px;
 }
 .signup-page .form-container input {
   display: block;
@@ -115,7 +123,7 @@ header .brand .brand-right img {
   font-style: italic;
 }
 .signup-page .entourage {
-  margin: 60px 0;
+  margin: 60px 0 0 0;
 }
 .signup-page .entourage .form-container {
   display: none;
@@ -129,19 +137,23 @@ header .brand .brand-right img {
 .signup-page .entourage .hidden_checkbox:checked ~ .form-container {
   display: block;
 }
-.signup-page .entourage img {
+.signup-page .entourage .visible_checkbox img {
   background-color: white;
   border: 2px solid #009ADA;
   border-radius: 10%;
   display: inline-block;
   width: 18px;
   vertical-align: bottom;
+  transition: all 0.2s;
 }
 .signup-page .entourage .text {
   font-family: Helvetica;
   font-size: 18px;
   font-weight: 300;
   color: #009ADA;
+}
+.signup-page button {
+  margin-top: 60px;
 }
 
 /*# sourceMappingURL=main.css.map */

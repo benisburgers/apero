@@ -52,12 +52,12 @@
             </div>
           </div>
           <button type="button" name="button">Ich nehme Teil</button>
-          <button type="button" name="button">Ich nehme Teil</button>
+          <button type="button" name="button">Ich nehme nicht Teil</button>
         </div>
       </section>
 
       <section class="signup-page">
-        <div class="side-padding">
+        <div class="positive side-padding">
           <h1>Ich nehme Teil</h1>
           <div class="form-container">
             <input type="text" name="name" placeholder="Vollständiger Name*" id="vname">
@@ -76,6 +76,17 @@
               <input type="text" name="name" placeholder="Vollständiger Name*" id="vname">
               <input type="text" name="email" placeholder="Email*" id="email">
             </div>
+          </div>
+          <button type="button" name="abschicken">Abschicken</button>
+        </div>
+        <div class="negative side-padding">
+          <h1>Ich nehme nicht Teil</h1>
+          <div class="form-container">
+            <input type="text" name="name" placeholder="Vollständiger Name*" id="vname">
+            <input type="text" name="email" placeholder="Email*" id="email">
+            <input type="text" name="strasse" placeholder="Strasse" id="strasse" class="missing">
+            <input type="text" name="plz" placeholder="PLZ" id="plz" class="faulty">
+            <input type="text" name="ort" placeholder="Ort" id="ort">
           </div>
           <button type="button" name="abschicken">Abschicken</button>
         </div>
