@@ -57,6 +57,11 @@ transition: .2s;
   }
 &.inactive {
   background-color: grey;
+  color: white;
+  &:hover,:active {
+    background-color: grey;
+    color: white;
+    }
   }
 }
 

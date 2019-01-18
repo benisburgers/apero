@@ -57,6 +57,11 @@ button:active {
 }
 button.inactive {
   background-color: grey;
+  color: white;
+}
+button.inactive:hover, button.inactive :active {
+  background-color: grey;
+  color: white;
 }
 
 header {
