@@ -18,46 +18,50 @@
 
 <body>
 
-  <div class="screen">
-    <header>
-      <div class="brand">
-        <div class="brand-left">
-          <img src="assets/brand-left.png" alt="Company Brand">
-        </div>
-        <div class="brand-right">
-          <img src="assets/brand-right.jpg" alt="Company Logos">
-        </div>
+  <header>
+    <div class="brand">
+      <div class="brand-left">
+        <img src="assets/brand-left.png" alt="Company Brand">
       </div>
-    </header>
-    <div class="content">
+      <div class="brand-right">
+        <img src="assets/brand-right.jpg" alt="Company Logos">
+      </div>
+    </div>
+  </header>
 
-      <section class="landing-page">
+  <div class="screen">
+    <div class="content">
+      <section class="landing-page hidden">
         <img src="assets/garage.jpg" alt="Location" class="garage"/>
-        <div class="side-padding">
+        <div class="body side-padding">
           <h1>Anmeldung zum Neujahrsapéro</h1>
-          <div class="date-and-time">
-            <img src="assets/calendar-icon.svg" alt="calendar">
-            <div class="text">
-              <span>Donnerstag, 11. Januar</span>
-              <span>Ab 18.30 bis 22.00 Uhr</span>
+          <div class="info">
+            <div class="date-and-time">
+              <img src="assets/calendar-icon.svg" alt="calendar">
+              <div class="text">
+                <span>Donnerstag, 11. Januar</span>
+                <span>Ab 18.30 bis 22.00 Uhr</span>
+              </div>
+            </div>
+            <div class="location">
+              <img src="assets/map-pin.svg" alt="map pin">
+              <div class="text">
+                <span>Binelli Group Adliswil</span>
+                <span>Zürichstrasse 102</span>
+                <span>8134</span>
+                <span>Adliswil</span>
+              </div>
             </div>
           </div>
-          <div class="location">
-            <img src="assets/map-pin.svg" alt="map pin">
-            <div class="text">
-              <span>Binelli Group Adliswil</span>
-              <span>Zürichstrasse 102</span>
-              <span>8134</span>
-              <span>Adliswil</span>
-            </div>
+          <div class="buttons">
+            <button type="button" name="button">Ich nehme Teil</button>
+            <button type="button" name="button">Ich nehme nicht Teil</button>
           </div>
-          <button type="button" name="button">Ich nehme Teil</button>
-          <button type="button" name="button">Ich nehme nicht Teil</button>
         </div>
       </section>
 
       <section class="signup-page">
-        <div class="positive side-padding">
+        <div class="positive side-padding hidden">
           <h1>Ich nehme Teil</h1>
           <div class="form-container">
             <input type="text" name="name" placeholder="Vollständiger Name*" id="vname">
@@ -77,23 +81,23 @@
               <input type="text" name="email" placeholder="Email*" id="email">
             </div>
           </div>
-          <button type="button" name="abschicken">Abschicken</button>
+          <button type="button" name="abschicken" class="positive">Abschicken</button>
         </div>
-        <div class="negative side-padding">
+        <div class="negative side-padding hidden">
           <h1>Ich nehme nicht Teil</h1>
-          <div class="form-container">
+          <div class="form-container negative">
             <input type="text" name="name" placeholder="Vollständiger Name*" id="vname">
             <input type="text" name="email" placeholder="Email*" id="email">
             <input type="text" name="strasse" placeholder="Strasse" id="strasse" class="missing">
             <input type="text" name="plz" placeholder="PLZ" id="plz" class="faulty">
             <input type="text" name="ort" placeholder="Ort" id="ort">
           </div>
-          <button type="button" name="abschicken">Abschicken</button>
+          <button type="button" name="abschicken" class="negative">Abschicken</button>
         </div>
       </section>
 
       <section class="confirmation-page side-padding">
-        <section class="confirmation-positive">
+        <section id="confirmation-positive" class="hidden">
           <div class="text-container" id="thank-you">
             <span>Vielen Dank für Ihre Rückmeldung.</span>
             <span>Sie erhalten in kürze eine Bestätigungsemail.</span>
@@ -113,7 +117,7 @@
             <span>Binelli Group Adliswil</span>
           </div>
         </section>
-        <section class="confirmation-negative">
+        <section id="confirmation-negative" class="hidden">
           <div class="text-container" id="thank-you">
             <span>Vielen Dank für Ihre Rückmeldung.</span>
             <span>Wir bedauren dass Sie nicht teilnehmen könen.</span>

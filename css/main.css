@@ -4,12 +4,15 @@ h1, span, button, input, label {
   color: black;
 }
 
-button, h1 {
-  font-size: 21px;
+h1, button {
   text-align: center;
 }
 
-span, input, label {
+h1 {
+  font-size: 22px;
+}
+
+span, input, label, button {
   font-size: 18px;
 }
 
@@ -19,12 +22,20 @@ img {
 
 .screen {
   width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: absolute;
   box-sizing: border-box;
+  padding-top: 51.47px;
 }
 
 .side-padding {
   padding-left: 9%;
   padding-right: 9%;
+}
+
+.hidden {
+  display: none;
 }
 
 button {
@@ -46,6 +57,9 @@ button:active {
 }
 
 header {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   box-sizing: border-box;
   background-color: white;
@@ -70,33 +84,39 @@ header .brand .brand-right img {
 .landing-page .garage {
   max-width: 100%;
 }
-.landing-page h1 {
-  margin: 30px 0;
-}
-.landing-page .date-and-time,
-.landing-page .location {
-  display: flex;
-  align-items: flex-start;
+.landing-page .body h1 {
   margin: 20px 0;
 }
-.landing-page .date-and-time img,
-.landing-page .location img {
+.landing-page .body .info, .landing-page .body .buttons {
+  margin: 20px 0;
+}
+.landing-page .body .date-and-time,
+.landing-page .body .location {
+  display: flex;
+  align-items: flex-start;
+  margin: 5px 0;
+}
+.landing-page .body .date-and-time img,
+.landing-page .body .location img {
   width: 18px;
 }
-.landing-page .date-and-time .text span,
-.landing-page .location .text span {
+.landing-page .body .date-and-time .text span,
+.landing-page .body .location .text span {
   display: block;
   margin-left: 30px;
 }
-.landing-page button {
-  margin: 15px 0;
+.landing-page .body button {
+  margin: 5px 0;
 }
 
 .signup-page h1 {
-  margin: 30px 0 60px 0;
+  margin: 20px 0;
 }
 .signup-page .form-container {
-  margin-top: 60px;
+  margin: 20px 0;
+}
+.signup-page .form-container.negative {
+  margin-top: 80px;
 }
 .signup-page .form-container input {
   display: block;
@@ -117,10 +137,10 @@ header .brand .brand-right img {
   font-style: italic;
 }
 .signup-page .entourage {
-  margin: 60px 0 0 0;
+  margin: 15px 0;
 }
 .signup-page .entourage .form-container {
-  display: none;
+  visibility: hidden;
 }
 .signup-page .entourage .hidden_checkbox {
   display: none;
@@ -129,7 +149,7 @@ header .brand .brand-right img {
   background-color: #009ADA;
 }
 .signup-page .entourage .hidden_checkbox:checked ~ .form-container {
-  display: block;
+  visibility: visible;
 }
 .signup-page .entourage .visible_checkbox img {
   background-color: white;
@@ -146,12 +166,15 @@ header .brand .brand-right img {
 .signup-page button {
   margin-top: 60px;
 }
+.signup-page button.negative {
+  margin-top: 120px;
+}
 
-.confirmation-page {
-  margin: 60px 0;
+.confirmation-page #confirmation-negative {
+  margin: 100px 0;
 }
 .confirmation-page .text-container {
-  margin: 45px 0;
+  margin: 30px 0;
 }
 .confirmation-page .text-container span {
   display: inline-block;
