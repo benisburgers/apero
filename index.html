@@ -31,7 +31,7 @@
 
   <div class="screen">
     <div class="content">
-      <section class="landing-page hidden">
+      <section class="landing-page">
         <img src="assets/garage.jpg" alt="Location" class="garage"/>
         <div class="body side-padding">
           <h1>Anmeldung zum Neujahrsapéro</h1>
@@ -54,17 +54,17 @@
             </div>
           </div>
           <div class="buttons">
-            <button type="button" name="button">Ich nehme Teil</button>
-            <button type="button" name="button">Ich nehme nicht Teil</button>
+            <button type="button" name="button" id="button_coming">Ich nehme Teil</button>
+            <button type="button" name="button" id="button_not_coming">Ich nehme nicht Teil</button>
           </div>
         </div>
       </section>
 
       <section class="signup-page">
-        <div class="positive side-padding hidden">
+        <section class="positive side-padding hidden" id="signup-positive">
           <h1>Ich nehme Teil</h1>
           <div class="form-container">
-            <input type="text" name="name" placeholder="Vollständiger Name*" id="vname">
+            <input type="text" name="name" placeholder="Vollständiger Name*" id="name">
             <input type="text" name="email" placeholder="Email*" id="email">
             <input type="text" name="strasse" placeholder="Strasse" id="strasse" class="missing">
             <input type="text" name="plz" placeholder="PLZ" id="plz" class="faulty">
@@ -77,23 +77,23 @@
             </label>
             <label for="entourage" class="text">Ich komme in Begleitung</label>
             <div class="form-container">
-              <input type="text" name="name" placeholder="Vollständiger Name*" id="vname">
+              <input type="text" name="name" placeholder="Vollständiger Name*" id="name">
               <input type="text" name="email" placeholder="Email*" id="email">
             </div>
           </div>
-          <button type="button" name="abschicken" class="positive">Abschicken</button>
-        </div>
-        <div class="negative side-padding hidden">
+          <button type="button" name="abschicken" class="positive" id="button_submit_positive">Abschicken</button>
+        </section>
+        <section class="negative side-padding hidden" id="signup-negative">
           <h1>Ich nehme nicht Teil</h1>
           <div class="form-container negative">
-            <input type="text" name="name" placeholder="Vollständiger Name*" id="vname">
+            <input type="text" name="name" placeholder="Vollständiger Name*" id="name">
             <input type="text" name="email" placeholder="Email*" id="email">
             <input type="text" name="strasse" placeholder="Strasse" id="strasse" class="missing">
             <input type="text" name="plz" placeholder="PLZ" id="plz" class="faulty">
             <input type="text" name="ort" placeholder="Ort" id="ort">
           </div>
-          <button type="button" name="abschicken" class="negative">Abschicken</button>
-        </div>
+          <button type="button" name="abschicken" class="negative" id="button_submit_negative">Abschicken</button>
+        </section>
       </section>
 
       <section class="confirmation-page side-padding">
