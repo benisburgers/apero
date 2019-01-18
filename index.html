@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title></title>
+  <title>Apero</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -60,73 +60,62 @@
         </div>
       </section>
 
-      <section class="signup-page">
-        <section class="positive side-padding hidden" id="signup-positive">
-          <h1>Ich nehme Teil</h1>
+      <section class="signup-page hidden side-padding">
+        <h2 class="positive">Ich nehme Teil</h2>
+        <h2 class="negative">Ich nehme nicht Teil</h2>
+        <div class="form-container">
+          <input type="text" name="name" placeholder="Vollständiger Name*" id="name">
+          <input type="text" name="email" placeholder="Email*" id="email">
+          <input type="text" name="strasse" placeholder="Strasse" id="street">
+          <input type="text" name="plz" placeholder="PLZ" id="plz">
+          <input type="text" name="ort" placeholder="Ort" id="ort">
+        </div>
+        <div class="entourage positive">
+          <input type="checkbox" name="entourage" id="checkbox-invisible">
+          <label for="checkbox-invisible" id="checkbox-visible">
+            <img src="assets/checkbox_check.svg" alt="checkmark" id="checkmark">
+          </label>
+          <label for="checkbox-invisible" class="text">Ich komme in Begleitung</label>
           <div class="form-container">
-            <input type="text" name="name" placeholder="Vollständiger Name*" id="name">
-            <input type="text" name="email" placeholder="Email*" id="email">
-            <input type="text" name="strasse" placeholder="Strasse" id="strasse" class="missing">
-            <input type="text" name="plz" placeholder="PLZ" id="plz" class="faulty">
-            <input type="text" name="ort" placeholder="Ort" id="ort">
+            <input type="text" name="name_entourage" placeholder="Vollständiger Name*" id="name_entourage">
+            <input type="text" name="email_entourage" placeholder="Email*" id="email_entourage">
           </div>
-          <div class="entourage">
-            <input type="checkbox" name="entourage" id="entourage" class="hidden_checkbox">
-            <label for="entourage" class="visible_checkbox">
-              <img src="assets/checkbox_check.svg" alt="checkmark" id="checkmark">
-            </label>
-            <label for="entourage" class="text">Ich komme in Begleitung</label>
-            <div class="form-container">
-              <input type="text" name="name" placeholder="Vollständiger Name*" id="name">
-              <input type="text" name="email" placeholder="Email*" id="email">
-            </div>
-          </div>
-          <button type="button" name="abschicken" class="positive" id="button_submit_positive">Abschicken</button>
-        </section>
-        <section class="negative side-padding hidden" id="signup-negative">
-          <h1>Ich nehme nicht Teil</h1>
-          <div class="form-container negative">
-            <input type="text" name="name" placeholder="Vollständiger Name*" id="name">
-            <input type="text" name="email" placeholder="Email*" id="email">
-            <input type="text" name="strasse" placeholder="Strasse" id="strasse" class="missing">
-            <input type="text" name="plz" placeholder="PLZ" id="plz" class="faulty">
-            <input type="text" name="ort" placeholder="Ort" id="ort">
-          </div>
-          <button type="button" name="abschicken" class="negative" id="button_submit_negative">Abschicken</button>
-        </section>
+        </div>
+        <button type="button" name="abschicken" class="inactive positive" id="button_submit_positive">Abschicken</button>
+        <button type="button" name="abschicken" class="inactive negative" id="button_submit_negative">Abschicken</button>
       </section>
 
       <section class="confirmation-page side-padding">
-        <section id="confirmation-positive" class="hidden">
-          <div class="text-container" id="thank-you">
+        <div class="confirmation-positive hidden">
+          <div class="text-container">
             <span>Vielen Dank für Ihre Rückmeldung.</span>
             <span>Sie erhalten in kürze eine Bestätigungsemail.</span>
           </div>
-          <div class="text-container" id="personal-information">
+          <div class="text-container personal-information">
             <span>Max Mustermann</span>
             <span>mit Evelyn Mustermann</span>
             <span>Am 11. Januar 2019</span>
             <span>in Adliswil</span>
           </div>
-          <div class="text-container" id="add-to-calendar">
+          <div class="text-container add-to-calendar">
             <img src="assets/calendar_blue.svg" alt="add to calendar">
             <span>An Kalender anfügen</span>
           </div>
-          <div class="text-container" id="greetings">
+          <div class="text-container">
             <span>Wir freuen uns auf Sie,</span>
             <span>Binelli Group Adliswil</span>
           </div>
-        </section>
-        <section id="confirmation-negative" class="hidden">
-          <div class="text-container" id="thank-you">
+        </div>
+        <div class="confirmation-negative hidden">
+          <div class="text-container">
             <span>Vielen Dank für Ihre Rückmeldung.</span>
             <span>Wir bedauren dass Sie nicht teilnehmen könen.</span>
           </div>
-          <div class="text-container" id="greetings">
+          <div class="text-container">
             <span>Mit freundlichen Grüssen,</span>
             <span>Ihre Binelli Group Adliswil</span>
           </div>
-        </section>
+        </div>
       </section>
     </div>
   </div>

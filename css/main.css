@@ -1,14 +1,14 @@
-h1, span, button, input, label {
+h1, h2, span, button, input, label {
   font-family: Helvetica;
   font-weight: 300;
   color: black;
 }
 
-h1, button {
+h1, h2, button {
   text-align: center;
 }
 
-h1 {
+h1, h2 {
   font-size: 22px;
 }
 
@@ -54,6 +54,9 @@ button:hover {
 button:active {
   background-color: #007BD4;
   color: black;
+}
+button.inactive {
+  background-color: grey;
 }
 
 header {
@@ -142,16 +145,16 @@ header .brand .brand-right img {
 .signup-page .entourage .form-container {
   visibility: hidden;
 }
-.signup-page .entourage .hidden_checkbox {
+.signup-page .entourage #checkbox-invisible {
   display: none;
 }
-.signup-page .entourage .hidden_checkbox:checked ~ .visible_checkbox img {
+.signup-page .entourage #checkbox-invisible:checked ~ #checkbox-visible img {
   background-color: #009ADA;
 }
-.signup-page .entourage .hidden_checkbox:checked ~ .form-container {
+.signup-page .entourage #checkbox-invisible:checked ~ .form-container {
   visibility: visible;
 }
-.signup-page .entourage .visible_checkbox img {
+.signup-page .entourage #checkbox-visible img {
   background-color: white;
   border: 2px solid #009ADA;
   border-radius: 4px;
@@ -164,13 +167,13 @@ header .brand .brand-right img {
   color: #009ADA;
 }
 .signup-page button {
-  margin-top: 60px;
+  margin-top: 70px;
 }
 .signup-page button.negative {
-  margin-top: 120px;
+  margin-top: 200px;
 }
 
-.confirmation-page #confirmation-negative {
+.confirmation-page .confirmation-negative {
   margin: 100px 0;
 }
 .confirmation-page .text-container {
@@ -180,18 +183,18 @@ header .brand .brand-right img {
   display: inline-block;
   margin: 18px 0;
 }
-.confirmation-page #personal-information span {
+.confirmation-page .personal-information span {
   margin: 0;
 }
-.confirmation-page #add-to-calendar {
+.confirmation-page .add-to-calendar {
   display: flex;
   align-items: center;
 }
-.confirmation-page #add-to-calendar img {
+.confirmation-page .add-to-calendar img {
   margin-right: 5px;
   width: 18px;
 }
-.confirmation-page #add-to-calendar span {
+.confirmation-page .add-to-calendar span {
   color: #009ADA;
   margin: 0;
 }
