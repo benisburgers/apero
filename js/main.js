@@ -119,8 +119,10 @@ $(document).ready(function(){
 
       //Check whether name input is valid
       function nameCheck(input) {
-        //nameBoxValue must be longer than three characters to allow for two names (first and last) and a space. Additionaly, a space must be present. Return true if valid.
-        return ((input.length > 2 == true) && (input.search(" ") > -1))
+        //rgex to check name input value
+        var nameRegex = /^[a-z ,.'-]+$/i
+        //test value of name against regex ==> Return true if validate (must include only "valid" characters and one space)
+        return((nameRegex.test(input)) && (input.search(" ") > -1))
       }
 
       //Check whether email input is valid
