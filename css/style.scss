@@ -58,6 +58,7 @@ transition: .2s;
 &.inactive {
   background-color: grey;
   color: white;
+  transition: all 3s;
   &:hover,:active {
     background-color: grey;
     color: white;

@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-  //pageflow
+  //Page Flow: Hide and show different sections
     //open sign up page positive from landing page
     $("#button_coming").click(function(){
       $(".landing-page").hide();
@@ -16,7 +16,7 @@ $(document).ready(function(){
     //open positive confirmation page from positive sign up page
     $("#button_submit_positive").click(function(){
       //active button only if form requirements bellow are met
-      if (buttonActive == true) {
+      if (button_is_active == true) {
         $(".signup-page").addClass("hidden");
         $(".confirmation-positive").removeClass("hidden");
       }
@@ -24,14 +24,15 @@ $(document).ready(function(){
     //open negative confirmation page from negative sign up page
     $("#button_submit_negative").click(function(){
       //active button only if form requirements bellow are met
-      if (buttonActive == true) {
+      if (button_is_active == true) {
         $(".signup-page").addClass("hidden");
         $(".confirmation-negative").removeClass("hidden");
       }
     });
 
-  //Form Script: Use bellow function to take media queries (name and email) and insert into the form
-    //function to access URL querys
+
+  //Fill out Form Script: Use bellow function to take URL queries (name and email) and insert into the form
+      //function to access URL querys
       var getUrlParameter = function getUrlParameter(sParam) {
         var sPageURL = window.location.search.substring(1),
             sURLVariables = sPageURL.split('&'),
@@ -46,85 +47,130 @@ $(document).ready(function(){
               }
           }
       };
-      //create variables for seperate URL querys
+
+      //Create variables for URL queries
       var vname = getUrlParameter('vname');
       var nname = getUrlParameter('nname');
-      var name  = vname + " " + nname
-      var email = getUrlParameter('email');
-      var nameBox = $("#name");
-      var emailBox = $("#email");
-      var isEmailValid;
-      var isNameValid;
-      var emailBoxValue;
-      var nameBoxValue;
-      var entourage;
-      var buttonActive;
+      var name_me  = vname + " " + nname
+      var email_me = getUrlParameter('email');
 
-      //Insert query values into respective form fields
-      nameBox.val(name);
-      emailBox.val(email);
+      //Create variables for me_form inputs
+      var nameBox_me = $("#name_me");
+      var emailBox_me = $("#email_me");
 
-
-      //Check whether email is valid
-      function emailCheck() {
-        //gain access to value inside email box
-        emailBoxValue = emailBox.val();
-        //create regex to check email box value
-        var emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-        //test value of email box against regex, save as variable
-        isEmailValid = emailRegex.test(emailBoxValue);
+      //Insert query values into respective form fields in me_form input fields.
+      function fillOutForm() {
+        //fill out nameBox_me only if vname and nname are available from URL, in order to avoid "undefined undefined" string inside form
+        if (vname != null && nname != null) {
+          nameBox_me.val(name_me);
+        }
+        emailBox_me.val(email_me);
       }
+      //run upon page load
+      fillOutForm();
 
-      function nameCheck() {
-        //gain access to value inside nameBox
-        nameBoxValue = nameBox.val();
-        //nameBoxValue must be longer than three characters to allow for two names (first and last) and a space. Additionaly, a space must be present.
-        if ((nameBoxValue.length > 2 == true) && (nameBoxValue.search(" ") > -1)) {
-          isNameValid = true;
-        }
-        else {
-          isNameValid = false;
-        }
-        console.log(nameBoxValue)
-        console.log(nameBoxValue.length)
-        console.log(isNameValid)
-      }
 
-      //if requirenments for form are met (email and name), remove .inactive class (appearance) to button_submit_positive and button_submit_negative, AND activate button by giving buttonActive value=true
-      //Do opposite if requirenments are not met.
-      function addClassToButton() {
-        emailCheck();
-        nameCheck();
-        if (isEmailValid == true && isNameValid == true) {
-          $("#button_submit_positive").removeClass("inactive");
-          $("#button_submit_negative").removeClass("inactive");
-          buttonActive = true;
-        }
-        else {
-          $("#button_submit_positive").addClass("inactive");
-          $("#button_submit_negative").addClass("inactive");
-          buttonActive = false;
-        }
-      }
-      //Run function on load
-      addClassToButton();
+  //Validate Form
 
-      //Run above function(check input's validity), everytime user changes content in emailBox or nameBox
-      emailBox.on('input', function(){
-        addClassToButton();
+      //Create variables for entourage_form inputs
+      var nameBox_entourage = $("#name_entourage");
+      var emailBox_entourage = $("#email_entourage");
+
+      //access values from inside form inputs
+      var nameBoxValue_me = nameBox_me.val();
+      var emailBoxValue_me = emailBox_me.val();
+      var nameBoxValue_entourage = nameBox_entourage.val();
+      var emailBoxValue_entourage = emailBox_entourage.val();
+
+      //create variable for whether entourage is coming
+      var entourage_is_coming = false;
+
+      //create variable to activate submit button
+      var button_is_active = false;
+
+      //Actualize and validate values of input fields everytime they change
+      nameBox_me.on('input', function() {
+        nameBoxValue_me = nameBox_me.val();
+        formCheckBoth();
       });
-      nameBox.on('input', function(){
-        addClassToButton();
+      emailBox_me.on('input', function() {
+        emailBoxValue_me = emailBox_me.val();
+        formCheckBoth();
+      });
+      nameBox_entourage.on('input', function() {
+        nameBoxValue_entourage = nameBox_entourage.val();
+        formCheckBoth();
+      });
+      emailBox_entourage.on('input', function() {
+        emailBoxValue_entourage = emailBox_entourage.val();
+        formCheckBoth();
       });
 
-      //everytime checkbox-invisible is checked, function checks whether a guest/entourage is coming
+      //Check whether entourage is coming whenever checkbox-invisible is checked. Validate forms.
       $('#checkbox-invisible').change(function(){
         if ($("#checkbox-invisible").is(':checked')) {
-          console.log("theres guests coming");
+          entourage_is_coming = true;
         }
-        else (
-          console.log("there's no guests")
-        )
-      })
+        else {
+          entourage_is_coming = false;
+        }
+        formCheckBoth();
+      });
 
-});
+      //Check whether name input is valid
+      function nameCheck(input) {
+        //nameBoxValue must be longer than three characters to allow for two names (first and last) and a space. Additionaly, a space must be present. Return true if valid.
+        return ((input.length > 2 == true) && (input.search(" ") > -1))
+      }
+
+      //Check whether email input is valid
+      function emailCheck(input) {
+        //regex to check email box value
+        var emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        //test value of email box against regex ==> Return true if valid
+        return(emailRegex.test(input));
+      }
+
+      //check for name and email validity in forms. Return true if both values are valid.
+      function formCheck(nameValue, emailValue) {
+        if ((nameCheck(nameValue) == true) && (emailCheck(emailValue) == true)) {
+          return true
+        }
+        else {
+          return false;
+        }
+      }
+
+      //activate submit button (positive and negative) and remove .inactive class (visually)
+      function activateButton() {
+        button_is_active = true;
+        $("#button_submit_negative").removeClass("inactive");
+        $("#button_submit_positive").removeClass("inactive");
+      }
+
+      //deactivate button (positive and negative) and add .inactive class (visually)
+      function deactivateButton() {
+        button_is_active = false;
+        $("#button_submit_negative").addClass("inactive");
+        $("#button_submit_positive").addClass("inactive");
+      }
+
+      //check both forms (me and entourage) for validity. Activate button if forms are valid, deactive button if they are not valid.
+      function formCheckBoth() {
+        //Is form_me valid AND entourage is NOT coming
+        if (formCheck(nameBoxValue_me, emailBoxValue_me) && entourage_is_coming == false) {
+          activateButton();
+        }
+        //Is form_me valid AND entourage_form is valid
+        else if (formCheck(nameBoxValue_me, emailBoxValue_me) && formCheck(nameBoxValue_entourage, emailBoxValue_entourage)) {
+            activateButton();
+          }
+        //If neither is neither the case
+        else {
+          deactivateButton();
+        }
+      }
+      // run function upon load
+      formCheckBoth();
+
+  });
