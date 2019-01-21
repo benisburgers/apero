@@ -3,30 +3,30 @@ $(document).ready(function(){
   //Page Flow: Hide and show different sections
     //open sign up page positive from landing page
     $("#button_coming").click(function(){
-      $(".landing-page").hide();
-      $(".signup-page").removeClass("hidden");
+      $(".landing-page").addClass("left");
+      $(".signup-page").addClass("center").removeClass("right");
       $(".signup-page > .negative").addClass("hidden");
     });
     //open sign up page negative from landing page
     $("#button_not_coming").click(function(){
-      $(".landing-page").hide();
-      $(".signup-page").removeClass("hidden");
+      $(".landing-page").addClass("left");
+      $(".signup-page").addClass("center").removeClass("right");
       $(".signup-page > .positive").addClass("hidden");
     });
     //open positive confirmation page from positive sign up page
     $("#button_submit_positive").click(function(){
       //active button only if form requirements bellow are met
       if (button_is_active == true) {
-        $(".signup-page").addClass("hidden");
-        $(".confirmation-positive").removeClass("hidden");
+        $(".signup-page").addClass("left");
+        $(".confirmation-positive").addClass("center").removeClass("right");
       }
     });
     //open negative confirmation page from negative sign up page
     $("#button_submit_negative").click(function(){
       //active button only if form requirements bellow are met
       if (button_is_active == true) {
-        $(".signup-page").addClass("hidden");
-        $(".confirmation-negative").removeClass("hidden");
+        $(".signup-page").addClass("left");
+        $(".confirmation-negative").addClass("center").removeClass("right");
       }
     });
 

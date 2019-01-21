@@ -22,12 +22,33 @@ img {
 }
 
 .screen {
+  position: relative;
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  position: absolute;
+  overflow: hidden;
   box-sizing: border-box;
   padding-top: 51.47px;
+}
+
+.center {
+  left: 0;
+}
+
+.left {
+  left: -100vw;
+}
+
+.right {
+  left: 100vw;
+}
+
+.left, .center, .right {
+  position: absolute;
+  max-width: 100%;
+  transition: left .2s;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .side-padding {
@@ -47,7 +68,7 @@ color: #FFFFFF;
 letter-spacing: 0.29px;
 border: none;
 padding: 7px 0;
-transition: .2s;
+transition: .3s;
 &:hover {
   background-color: #007BD4;
   }
@@ -58,7 +79,6 @@ transition: .2s;
 &.inactive {
   background-color: grey;
   color: white;
-  transition: all 3s;
   &:hover,:active {
     background-color: grey;
     color: white;
@@ -156,7 +176,8 @@ transition: .2s;
   .entourage {
     margin: 15px 0;
     .form-container {
-      visibility: hidden;
+      opacity: 0;
+      transition: opacity .3s;
     }
     #checkbox-invisible {
       display: none;
@@ -167,7 +188,7 @@ transition: .2s;
           }
         }
         ~ .form-container {
-          visibility: visible;
+          opacity: 1;
         }
       }
     }
@@ -179,7 +200,7 @@ transition: .2s;
         display: inline-block;
         width: 18px;
         vertical-align: bottom;
-        transition: all .2s;
+        transition: all .3s;
       }
     }
     .text {
