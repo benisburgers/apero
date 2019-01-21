@@ -89,21 +89,11 @@ $(document).ready(function(){
       var button_is_active = false;
 
       //Actualize and validate values of input fields everytime they change
-      nameBox_me.on('input', function() {
-        nameBoxValue_me = nameBox_me.val();
-        formCheckBoth();
+      nameBox_me.add(nameBox_entourage).on('input', function() {
+        nameCheckNew($(this));
       });
-      emailBox_me.on('input', function() {
-        emailBoxValue_me = emailBox_me.val();
-        formCheckBoth();
-      });
-      nameBox_entourage.on('input', function() {
-        nameBoxValue_entourage = nameBox_entourage.val();
-        formCheckBoth();
-      });
-      emailBox_entourage.on('input', function() {
-        emailBoxValue_entourage = emailBox_entourage.val();
-        formCheckBoth();
+      emailBox_me.add(emailBox_entourage).on('input', function() {
+        emailCheckNew($(this));
       });
 
       //Check whether entourage is coming whenever checkbox-invisible is checked. Validate forms.
@@ -122,7 +112,7 @@ $(document).ready(function(){
         //rgex to check name input value
         var nameRegex = /^[a-z ,.'-]+$/i
         //test value of name against regex ==> Return true if validate (must include only "valid" characters and one space)
-        return((nameRegex.test(input)) && (input.search(" ") > -1))
+        return((nameRegex.test(input)))
       }
 
       //Check whether email input is valid
@@ -131,6 +121,38 @@ $(document).ready(function(){
         var emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
         //test value of email box against regex ==> Return true if valid
         return(emailRegex.test(input));
+      }
+
+      //Check whether name input is valid
+      function nameCheckNew(input) {
+        //rgex to check name input value
+        var nameRegex = /^[a-z ,.'-]+$/i
+        //access value inside namebox
+        var nameValue = input.val();
+        //test value of name against regex ==> Return true if validate (must include only "valid" characters and one space)
+        if (nameRegex.test(nameValue)) {
+          //if nameInput meets requirenments removeClass("invalid") (visual/red text)
+          input.removeClass("invalid");
+        }
+        else {
+          //else: add class .invalid (visual)
+          input.addClass("invalid");
+        }
+      }
+
+      //Check whether email input is valid
+      function emailCheckNew(input) {
+        //regex to check email box value
+        var emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        //access value inside emailBox
+        var emailValue = input.val()
+        //test value of email box against regex ==> Return true if valid
+        if (emailRegex.test(emailValue)) {
+          input.removeClass("invalid");
+        }
+        else {
+          input.addClass("invalid");
+        }
       }
 
       //check for name and email validity in forms. Return true if both values are valid.

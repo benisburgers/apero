@@ -158,7 +158,7 @@ header .brand .brand-right img {
   color: rgba(0, 0, 0, 0.38);
   font-style: normal;
 }
-.signup-page .form-container input.faulty {
+.signup-page .form-container input.invalid {
   color: red;
 }
 .signup-page .form-container input.missing {
