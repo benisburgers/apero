@@ -62,23 +62,23 @@
       <section class="signup-page side-padding right">
         <h2 class="positive">Ich nehme Teil</h2>
         <h2 class="negative">Ich nehme nicht Teil</h2>
-        <div class="form-container">
-          <input type="text" name="name" placeholder="Vollständiger Name*" id="name_me">
-          <input type="text" name="email" placeholder="Email*" id="email_me">
-          <input type="text" name="strasse" placeholder="Strasse" id="street">
-          <input type="text" name="plz" placeholder="PLZ" id="plz">
-          <input type="text" name="ort" placeholder="Ort" id="ort">
-        </div>
+        <form class="form-container">
+          <input type="text" name="name" placeholder="Vollständiger Name*" id="name_me" class="form-input">
+          <input type="text" name="email" placeholder="Email*" id="email_me" class="form-input">
+          <input type="text" name="street" placeholder="Strasse" id="street" class="form-input">
+          <input type="text" name="plz" placeholder="PLZ" id="plz" class="form-input">
+          <input type="text" name="ort" placeholder="Ort" id="ort" class="form-input">
+        </form>
         <div class="entourage positive">
           <input type="checkbox" name="entourage" id="checkbox-invisible">
           <label for="checkbox-invisible" id="checkbox-visible">
             <img src="assets/checkbox_check.svg" alt="checkmark" id="checkmark">
           </label>
           <label for="checkbox-invisible" class="text">Ich komme in Begleitung</label>
-          <div class="form-container">
-            <input type="text" name="name_entourage" placeholder="Vollständiger Name*" id="name_entourage">
-            <input type="text" name="email_entourage" placeholder="Email*" id="email_entourage">
-          </div>
+          <form class="form-container">
+            <input type="text" name="name" placeholder="Vollständiger Name*" id="name_entourage" class="form-input">
+            <input type="text" name="email" placeholder="Email*" id="email_entourage" class="form-input">
+          </form>
         </div>
         <button type="button" name="abschicken" class="positive inactive" id="button_submit_positive">Abschicken</button>
         <button type="button" name="abschicken" class="negative inactive" id="button_submit_negative">Abschicken</button>
