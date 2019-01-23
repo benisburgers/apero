@@ -56,16 +56,16 @@ $(document).ready(function(){
       //Create variables for me_form inputs
       var name_me = $("#name_me");
       var email_me = $("#email_me");
-
-      var name_entourage = $("#name_entourage")
-      var email_entourage = $("#email_entourage")
-
       var street = $("#street");
       var plz = $("#plz");
       var ort = $("#ort");
 
+      //Create variables for entourage_form inputs
+      var name_entourage = $("#name_entourage")
+      var email_entourage = $("#email_entourage")
 
-      //Insert query values into respective form fields in me_form input fields.
+
+      //Insert URL query values into respective form fields in me_form input fields.
       function fillOutForm() {
         //fill out nameBox_me only if vname and nname are available from URL, in order to avoid "undefined undefined" string inside form
         if (vname != null && nname != null) {
@@ -85,9 +85,9 @@ $(document).ready(function(){
       //create variable to activate submit button
       var button_is_active = false;
 
-      //Actualize and validate values of input fields everytime they change
+      //Check form validity everytime value in input field is changed
       $(".form-input").on('input', function() {
-        checkEveryone();
+        validateForm();
       });
 
 
@@ -99,15 +99,13 @@ $(document).ready(function(){
         else {
           entourage_is_coming = false;
         }
-        checkEveryone();
-        console.log("entourage_is_coming" + entourage_is_coming)
+        validateForm();
       });
 
-      //CHECK NAME AND EMAIL
-
-
+      //Check Email and Name field for 'me' ('me' is the first guest. 'entourage' is the guest's guest)
       function checkMe() {
-        if (nameAndEmailCheck(name_me, email_me) & addressCheck()) {
+        //if (name and email are valid) AND address fields are valid (or empty), return true. Else return false.
+        if ((checkBox(name_me) & checkBox(email_me)) & checkAddress()) {
           return true;
         }
         else {
@@ -115,6 +113,7 @@ $(document).ready(function(){
         }
       }
 
+      //Check name and email fields for entourage (guest's guest). If NO entourage is coming, return true.
       function checkEntourage() {
         if (entourage_is_coming == true) {
           if (checkBox(name_entourage) & checkBox(email_entourage)) {
@@ -124,77 +123,62 @@ $(document).ready(function(){
             return false;
           }
         }
-        //entourage is not coming ==> always return true (cant insert invalid information for someone who's not coming)
+        //entourage is not coming ==> always return true (user cant insert invalid information for someone who's not coming)
         else {
           return true;
-        }
-      }
-
-      function nameAndEmailCheck() {
-        console.log("nameAndEmailCheck");
-        if (checkBox(name_me) & checkBox(email_me)) {
-          return true;
-        }
-        else {
-          return false;
         }
       }
 
       //CHECK ADDRESSES
-      function addressCheck() {
-        console.log("addressCheck")
+      function checkAddress() {
+        //if all address fields (street, plz, ort) are left empty ==> Return true
         if (allAddressBoxesEmpty()) {
-          console.log("addressCheck: true")
           return true;
         }
+        //else:
         else {
+          //all address fields must be valid ==> true
           if (allAddressBoxesValid()) {
-            console.log("addressCheck: true")
             return true;
           }
+          //else: return false
           else {
-            console.log("addressCheck: false");
             return false;
           }
         }
       }
 
-      function allAddressBoxesEmpty() {
-        console.log("allAddressBoxesEmpty")
-        if (addressBoxEmpty(street) & addressBoxEmpty(plz) & addressBoxEmpty(ort)) {
-          console.log("allAddressBoxesEmpty: true")
-          return true;
-        }
-        else {
-          console.log("allAddressBoxesEmpty: false")
-          return false;
-        }
-      }
-
+      //check whether specific address Box is empty: Return true if it is. Else, return false.
       function addressBoxEmpty(input) {
-        console.log("addressBoxEmpty")
         if (input.val() == "") {
-          console.log("addressBoxEmpty: true");
           return true;
         }
         else {
-          console.log("addressBoxEmpty: false");
           return false;
         }
       }
 
+      //check whether ALL address boxes are empty (street, plz, ort)
+      function allAddressBoxesEmpty() {
+        if (addressBoxEmpty(street) & addressBoxEmpty(plz) & addressBoxEmpty(ort)) {
+          return true;
+        }
+        else {
+          return false;
+        }
+      }
+      
+      //check whether all Address Inputs fields are Valid (street, plz, ort) by running each field through checkBox. Return true if they are. Else, return false.
       function allAddressBoxesValid() {
-        console.log("allAddressBoxesValid")
         if (checkBox(street) & checkBox(plz) & checkBox(ort)) {
-          console.log("allAddressBoxesValid: true")
           return true;
         }
         else {
-          console.log("allAddressBoxesValid: false");
           return false;
         }
       }
 
+      //Create object with a regex to validate each field
       var regex = {
         name: /^[a-z ,.'-]+$/i,
         email: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
@@ -203,20 +187,19 @@ $(document).ready(function(){
         ort:/^[a-z ,.'-]+$/i,
       };
 
+      //Validate each field against its corresponding regex. Return true or false.
       function checkBox(input) {
-        console.log("checkBox")
+        //Create variable with value INSIDE the corresponding field (e.g. inside 'name', we find 'Max Mustermann')
         var value = input.val();
-        console.log(value);
+        //Create a variable with each field's corresponding regex, by using this field's name and accessing the 'regex' object.
         var specificRegex = regex[input.attr('name')];
-        console.log(specificRegex);
-        console.log(specificRegex.test(value));
+        //If the field passes the regex test (is valid), removeClass .invalid (visual, red) from that field. Return true.
         if (specificRegex.test(value)) {
-          console.log("checkBox: true")
           input.removeClass("invalid");
           return true;
         }
+        //Else: addClass .invalid to that field and return false.
         else {
-          console.log("checkBox: false");
           input.addClass("invalid");
           return false;
         }
@@ -234,15 +217,16 @@ $(document).ready(function(){
         $("#button_submit_negative, #button_submit_positive").addClass("inactive");
       }
 
-
-            function checkEveryone() {
-              if (checkMe() & checkEntourage()) {
-                activateButton();
-              }
-              else {
-                deactivateButton();
-              }
-            }
-            checkEveryone();
+      //If both forms (me and entourage) are valid, activate Button.
+      //Else: deactivate Button.
+      function validateForm() {
+        if (checkMe() & checkEntourage()) {
+          activateButton();
+        }
+        else {
+          deactivateButton();
+        }
+      }
+      validateForm();
 
   });
