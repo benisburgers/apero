@@ -1,3 +1,15 @@
+// variables
+  //media breakpoints
+    // Small devices (landscape phones, 576px and up)
+    $small-devices:       576px;
+    // Medium devices (tablets, 768px and up)
+    $medium-devices:      768px;
+    // Large devices (desktops, 992px and up)
+    $large-devices:       992px;
+    // Extra large devices (large desktops, 1200px and up)
+    $extra-large-devices: 1200px;
+
+
 //Universal rules
 h1, h2, span, button, input, label {
   font-family: Helvetica;
@@ -11,54 +23,22 @@ h1, h2, button {
 
 h1, h2 {
   font-size: 22px;
+  @media(min-width: $medium-devices) {
+    font-weight: bold;
+  }
 }
 
 span, input, label, button {
   font-size: 18px;
+  @media(min-width: $medium-devices) {
+    font-size: 30px;
+  }
 }
 
 img {
   display: block;
 }
 
-.screen {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  overflow: hidden;
-  box-sizing: border-box;
-  padding-top: 51.47px;
-}
-
-.center {
-  left: 0;
-}
-
-.left {
-  left: -100vw;
-}
-
-.right {
-  left: 100vw;
-}
-
-.left, .center, .right {
-  position: absolute;
-  max-width: 100%;
-  transition: left .2s;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.side-padding {
-  padding-left: 9%;
-  padding-right: 9%;
-}
-
-.hidden {
-  display: none;
-}
 
 button {
 width: 100%;
@@ -84,73 +64,203 @@ transition: .3s;
     color: white;
     }
   }
+  @media(min-width: $medium-devices) {
+    border-radius: 5px;
+    font-size: 20px;
+    padding: 14px;
+  }
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(12, [col-start] 1fr);
+    grid-column-gap: 20px;
+}
+// All children of grid span the entire grid automatically
+.grid > * {
+  grid-column: col-start / span 12;
+}
+
+.screen {
+  position: fixed;
+  width: 100vw;
+  max-width: 850px;
+  margin: 0 auto;
+  height: 100vh;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction:column;
+}
+
+.content {
+  position: relative;
+  flex: 1;
+}
+
+.center {
+  left: 0;
+}
+
+.left {
+  left: -100vw;
+}
+
+.right {
+  left: 100vw;
+}
+
+.left, .center, .right {
+  position: absolute;
+  max-width: 100%;
+  transition: left .2s;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.side-padding {
+  padding: 0 9%;
+  @media(min-width: $medium-devices) {
+    padding: 0;
+  }
+}
+
+.hidden {
+  display: none;
 }
 
  header {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   box-sizing: border-box;
   background-color: white;
   padding: 15px 20px;
+  @media(min-width: $medium-devices) {
+    padding: 15px 0;
+  }
   .brand {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: auto;
     .brand-left {
-      display: block;
+      min-width: 85px;
+      width: 18.55%;
       img {
-        width: 85px;
+        width: 100%;
       }
     }
     .brand-right {
+      min-width: 125px;
+      width: 23.05%;
       img {
-        width: 125px;
+        width: 100%;
       }
     }
   }
 }
 
 .landing-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: absolute;
+  height: 100%;
   .garage {
     max-width: 100%;
   }
-  .body {
-    h1 {
-      margin: 20px 0;
+  h1 {
+    margin: 20px 0;
+    @media(min-width: $medium-devices) {
+      text-align: left;
+      margin: 70px 0 50px;
+      font-size: 40px;
     }
-    .info, .buttons {
-      margin: 20px 0;
+  }
+  .location {
+    @media(min-width: $medium-devices) {
+      grid-column: col-start 1 / span 5;
     }
-    .date-and-time,
-    .location {
-      display: flex;
-      align-items: flex-start;
-      margin: 5px 0;
+  }
+  .date-and-time {
+    @media(min-width: $medium-devices) {
+      grid-column: col-start 8 / span 5;
+    }
+  }
+  .location, .buttons {
+    margin: 20px 0;
+  }
+  .location,
+  .date-and-time {
+    display: flex;
+    align-items: flex-start;
+    margin: 5px 0;
+    @media(min-width: $medium-devices) {
+      flex-direction: column;
+      margin-bottom: 70px;
+    }
+    .header {
+      @media(min-width: $medium-devices) {
+        display: flex;
+        align-items: center;
+      }
       img {
         width: 18px;
+        @media(min-width: $medium-devices) {
+          min-width: 60px;
+        }
       }
-      .text {
-        span {
-          display: block;
-          margin-left: 30px;
+      h2 {
+        display: none;
+        padding: 0;
+        margin: 0;
+        margin-left: 20px;
+        @media(min-width: $medium-devices) {
+          display: inline-block;
+          font-size: 30px;
         }
       }
     }
-    button {
-      margin: 5px 0;
+    .text {
+      margin-left: 30px;
+      @media(min-width: $medium-devices) {
+        margin-left: 0;
+        margin-top: 50px;
+      }
+      span {
+        display: block;
+      }
+    }
+  }
+  button {
+    margin: 5px 0;
+    @media(min-width: $medium-devices) {
+      margin: 0;
+    }
+  }
+  .button-positive {
+    @media(min-width: $medium-devices) {
+      grid-column: col-start 3 / span 4;
+    }
+  }
+  .button-negative {
+    @media(min-width: $medium-devices) {
+      grid-column: col-start 7 / span 4;
     }
   }
 }
 
 .signup-page {
-  h1 {
-    margin: 20px 0;
+  h2 {
+    @media(min-width: $medium-devices) {
+      font-size: 35px;
+      font-weight: 300;
+    }
   }
   .form-container {
     margin: 20px 0;
+    @media(min-width: $medium-devices) {
+      grid-column: col-start 3 / span 8;
+    }
     &.negative {
       margin-top: 80px;
     }
@@ -175,6 +285,9 @@ transition: .3s;
   }
   .entourage {
     margin: 15px 0;
+    @media(min-width: $medium-devices) {
+      grid-column: col-start 3 / span 8;
+    }
     .form-container {
       opacity: 0;
       transition: opacity .3s;
@@ -209,6 +322,11 @@ transition: .3s;
   }
   button {
     margin-top: 70px;
+    @media(min-width: $medium-devices) {
+      width: 21%;
+      max-width: 221px;
+      margin: 0 auto;
+    }
     &.negative {
       margin-top: 200px;
     }

@@ -3,20 +3,24 @@ $(document).ready(function(){
   //Page Flow: Hide and show different sections
     //open sign up page positive from landing page
     // LANDING PAGE ==> SIGN UP PAGE
-    $(".button-sign-up").click(function(){
+    $(".button-signup").click(function(){
+      var origin = ($(this).attr('data-origin'))
+      var destination = ($(this).attr('data-destination'))
       var positiveOrNegative = ($(this).attr('name'))
-      $(".landing-page").addClass("left");
-      $(".signup-page").addClass("center").removeClass("right").find("." + positiveOrNegative).removeClass("hidden");
+      $("." + origin).addClass("left");
+      $("." + destination).addClass("center").removeClass("right").find("." + positiveOrNegative).removeClass("hidden");
     });
 
     // SIGN UP PAGE ==> CONFIRMATION PAGE
     //open positive confirmation page from positive sign up page
     $(".button-submit").click(function(){
       //active button only if button_is_active is true
+      var origin = ($(this).attr('data-origin'))
+      var destination = ($(this).attr('data-destination'))
       var positiveOrNegative = ($(this).attr('name'))
       if (button_is_active) {
-        $(".signup-page").addClass("left");
-        $(".confirmation-page").addClass("center").removeClass("right").find("." + positiveOrNegative).removeClass("hidden");
+        $("." + origin).addClass("left");
+        $("." + destination).addClass("center").removeClass("right").find("." + positiveOrNegative).removeClass("hidden");
       }
     });
 

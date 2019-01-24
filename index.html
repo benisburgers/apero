@@ -29,37 +29,43 @@
         </div>
       </div>
     </header>
+
     <div class="content">
+
       <section class="landing-page center">
         <img src="assets/garage.jpg" alt="Location" class="garage"/>
-        <div class="body side-padding">
+        <div class="body side-padding grid">
           <h1>Anmeldung zum Neujahrsapéro</h1>
-          <div class="info">
-            <div class="date-and-time">
-              <img src="assets/calendar-icon.svg" alt="calendar">
-              <div class="text">
-                <span>Donnerstag, 11. Januar</span>
-                <span>Ab 18.30 bis 22.00 Uhr</span>
-              </div>
-            </div>
-            <div class="location">
+          <div class="location">
+            <div class="header">
               <img src="assets/map-pin.svg" alt="map pin">
-              <div class="text">
-                <span>Binelli Group Adliswil</span>
-                <span>Zürichstrasse 102</span>
-                <span>8134</span>
-                <span>Adliswil</span>
-              </div>
+              <h2>Standort</h2>
+            </div>
+            <div class="text">
+              <span>Binelli Group Adliswil</span>
+              <span>Zürichstrasse 102</span>
+              <span>8134</span>
+              <span>Adliswil</span>
             </div>
           </div>
-          <div class="buttons">
-            <button type="button" name="positive" id="button_coming" class="button-sign-up">Ich nehme Teil</button>
-            <button type="button" name="negative" id="button_not_coming" class="button-sign-up">Ich nehme nicht Teil</button>
+          <div class="date-and-time">
+            <div class="header">
+              <img src="assets/calendar-icon.svg" alt="calendar">
+              <h2>Uhrzeit</h2>
+            </div>
+            <div class="text">
+              <span>Donnerstag, 11. Januar</span>
+              <span>Ab 18.30 bis 22.00 Uhr</span>
+            </div>
           </div>
+        </div>
+        <div class="buttons side-padding grid">
+          <button type="button" name="positive" id="button_coming" class="button-signup button-positive" data-origin="landing-page" data-destination="signup-page">Ich nehme Teil</button>
+          <button type="button" name="negative" id="button_not_coming" class="button-signup button-negative" data-origin="landing-page" data-destination="signup-page">Ich nehme nicht Teil</button>
         </div>
       </section>
 
-      <section class="signup-page side-padding right">
+      <section class="signup-page side-padding right grid">
         <h2 class="positive hidden">Ich nehme Teil</h2>
         <h2 class="negative hidden">Ich nehme nicht Teil</h2>
         <form class="form-container">
@@ -80,8 +86,8 @@
             <input type="text" name="email" placeholder="Email*" id="email_entourage" class="form-input">
           </form>
         </div>
-        <button type="button" name="positive" class="button-submit positive inactive hidden" id="button_submit_positive">Abschicken</button>
-        <button type="button" name="negative" class="button-submit negative inactive hidden" id="button_submit_negative">Abschicken</button>
+        <button type="button" id="button_submit_positive" name="positive" class="button-submit positive inactive hidden" data-origin="signup-page" data-destination="confirmation-page">Abschicken</button>
+        <button type="button" id="button_submit_negative" name="negative" class="button-submit negative inactive hidden" data-origin="signup-page" data-destination="confirmation-page">Abschicken</button>
       </section>
 
       <section class="confirmation-page right">
