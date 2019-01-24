@@ -2,33 +2,24 @@ $(document).ready(function(){
 
   //Page Flow: Hide and show different sections
     //open sign up page positive from landing page
-    $("#button_coming").click(function(){
+    // LANDING PAGE ==> SIGN UP PAGE
+    $(".button-sign-up").click(function(){
+      var positiveOrNegative = ($(this).attr('name'))
       $(".landing-page").addClass("left");
-      $(".signup-page").addClass("center").removeClass("right");
-      $(".signup-page > .negative").addClass("hidden");
+      $(".signup-page").addClass("center").removeClass("right").find("." + positiveOrNegative).removeClass("hidden");
     });
-    //open sign up page negative from landing page
-    $("#button_not_coming").click(function(){
-      $(".landing-page").addClass("left");
-      $(".signup-page").addClass("center").removeClass("right");
-      $(".signup-page > .positive").addClass("hidden");
-    });
+
+    // SIGN UP PAGE ==> CONFIRMATION PAGE
     //open positive confirmation page from positive sign up page
-    $("#button_submit_positive").click(function(){
+    $(".button-submit").click(function(){
       //active button only if button_is_active is true
+      var positiveOrNegative = ($(this).attr('name'))
       if (button_is_active) {
         $(".signup-page").addClass("left");
-        $(".confirmation-positive").addClass("center").removeClass("right");
+        $(".confirmation-page").addClass("center").removeClass("right").find("." + positiveOrNegative).removeClass("hidden");
       }
     });
-    //open negative confirmation page from negative sign up page
-    $("#button_submit_negative").click(function(){
-      //active button only if button_is_active is true
-      if (button_is_active) {
-        $(".signup-page").addClass("left");
-        $(".confirmation-negative").addClass("center").removeClass("right");
-      }
-    });
+
 
   //Fill out Form Script: Use bellow function to take URL queries (name and email) and insert into the form
       //function to access URL querys
@@ -167,7 +158,7 @@ $(document).ready(function(){
           return false;
         }
       }
-      
+
       //check whether all Address Inputs fields are Valid (street, plz, ort) by running each field through checkBox. Return true if they are. Else, return false.
       function allAddressBoxesValid() {
         if (checkBox(street) & checkBox(plz) & checkBox(ort)) {
@@ -227,6 +218,7 @@ $(document).ready(function(){
           deactivateButton();
         }
       }
+      //Run upon load
       validateForm();
 
   });

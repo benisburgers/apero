@@ -53,15 +53,15 @@
             </div>
           </div>
           <div class="buttons">
-            <button type="button" name="button" id="button_coming">Ich nehme Teil</button>
-            <button type="button" name="button" id="button_not_coming">Ich nehme nicht Teil</button>
+            <button type="button" name="positive" id="button_coming" class="button-sign-up">Ich nehme Teil</button>
+            <button type="button" name="negative" id="button_not_coming" class="button-sign-up">Ich nehme nicht Teil</button>
           </div>
         </div>
       </section>
 
       <section class="signup-page side-padding right">
-        <h2 class="positive">Ich nehme Teil</h2>
-        <h2 class="negative">Ich nehme nicht Teil</h2>
+        <h2 class="positive hidden">Ich nehme Teil</h2>
+        <h2 class="negative hidden">Ich nehme nicht Teil</h2>
         <form class="form-container">
           <input type="text" name="name" placeholder="Vollständiger Name*" id="name_me" class="form-input">
           <input type="text" name="email" placeholder="Email*" id="email_me" class="form-input">
@@ -69,7 +69,7 @@
           <input type="text" name="plz" placeholder="PLZ" id="plz" class="form-input">
           <input type="text" name="ort" placeholder="Ort" id="ort" class="form-input">
         </form>
-        <div class="entourage positive">
+        <div class="entourage positive hidden">
           <input type="checkbox" name="entourage" id="checkbox-invisible">
           <label for="checkbox-invisible" id="checkbox-visible">
             <img src="assets/checkbox_check.svg" alt="checkmark" id="checkmark">
@@ -80,12 +80,12 @@
             <input type="text" name="email" placeholder="Email*" id="email_entourage" class="form-input">
           </form>
         </div>
-        <button type="button" name="abschicken" class="positive inactive" id="button_submit_positive">Abschicken</button>
-        <button type="button" name="abschicken" class="negative inactive" id="button_submit_negative">Abschicken</button>
+        <button type="button" name="positive" class="button-submit positive inactive hidden" id="button_submit_positive">Abschicken</button>
+        <button type="button" name="negative" class="button-submit negative inactive hidden" id="button_submit_negative">Abschicken</button>
       </section>
 
-      <section class="confirmation-page">
-        <div class="confirmation-positive right side-padding">
+      <section class="confirmation-page right">
+        <div class="positive side-padding hidden">
           <div class="text-container">
             <span>Vielen Dank für Ihre Rückmeldung.</span>
             <span>Sie erhalten in kürze eine Bestätigungsemail.</span>
@@ -105,7 +105,7 @@
             <span>Binelli Group Adliswil</span>
           </div>
         </div>
-        <div class="confirmation-negative right side-padding">
+        <div class="negative side-padding hidden">
           <div class="text-container">
             <span>Vielen Dank für Ihre Rückmeldung.</span>
             <span>Wir bedauren dass Sie nicht teilnehmen könen.</span>
