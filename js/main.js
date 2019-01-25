@@ -23,8 +23,8 @@ $(document).ready(function(){
       var destination = ($(this).attr('data-destination'))
       var positiveOrNegative = ($(this).attr('name'))
       if ($(this).hasClass("activated")) {
-        $("." + origin).addClass("left");
-        $("." + destination).addClass("center").removeClass("right").find("." + positiveOrNegative).removeClass("hidden");
+        $("." + origin).addClass("left").delay(100).addClass("hidden");
+        $("." + destination).addClass("center").removeClass("right hidden").find("." + positiveOrNegative).removeClass("hidden");
       }
     });
 

@@ -101,13 +101,20 @@ color: white;
   overflow-x: hidden;
   box-sizing: border-box;
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
 }
 
 //Fill remaining space of viewport (screen - header) with .content
 .content {
   position: relative;
   flex: 1;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 10px;
+  min-height: 100%;
 }
 
 //Use bellow classes to create dynamically moving pages (moving right to left)
@@ -173,15 +180,11 @@ color: white;
 }
 
 .landing-page {
-  display: flex;
-  flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 10px;
   @media(min-width: $medium-devices) {
     padding-bottom: 20px;
   }
-  min-height: 100%;
   .garage {
     max-width: 100%;
   }
@@ -257,11 +260,7 @@ color: white;
 }
 
 .signup-page {
-  display: flex;
-  flex-direction: column;
   justify-content: space-between;
-  padding-bottom: 5%;
-  height: 100%;
   h2 {
     @media(min-width: $medium-devices) {
       font-size: 35px;
@@ -269,7 +268,7 @@ color: white;
     }
   }
   .form-container {
-    //margin: 20px 0;
+    margin: 10px 0;
     @media(min-width: $medium-devices) {
       grid-column: col-start 3 / span 8;
     }
@@ -296,7 +295,7 @@ color: white;
     }
   }
   .entourage {
-    //margin: 15px 0;
+    margin: 15px 0;
     @media(min-width: $medium-devices) {
       grid-column: col-start 3 / span 8;
     }
@@ -336,23 +335,19 @@ color: white;
     }
   }
   button {
-    //margin-top: 70px;
+    margin: 10px 0;
     @media(min-width: $medium-devices) {
       width: 21%;
       max-width: 221px;
       margin: 0 auto;
     }
     &.negative {
-      margin-top: 200px;
     }
   }
 }
 
 .confirmation-page {
-  display: flex;
-  flex-direction: column;
   justify-content: center;
-  height: 100%;
   .positive, .negative {
     height: 100%;
     display: flex;
