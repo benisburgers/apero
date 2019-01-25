@@ -4,8 +4,13 @@ h1, h2, span, button, input, label {
   color: black;
 }
 
-h1, h2, button {
+button {
   text-align: center;
+}
+@media (min-width: 768px) {
+  button {
+    width: 242px;
+  }
 }
 
 h1, h2 {
@@ -33,25 +38,10 @@ img {
 button {
   width: 100%;
   border-radius: 30px;
-  background-color: #009ADA;
-  color: #FFFFFF;
   letter-spacing: 0.29px;
   border: none;
   padding: 7px 0;
   transition: 0.3s;
-}
-button:hover {
-  background-color: #007BD4;
-}
-button:active {
-  background-color: #007BD4;
-  color: black;
-}
-button.inactive {
-  background-color: grey;
-  color: white;
-}
-button.inactive:hover, button.inactive :active {
   background-color: grey;
   color: white;
 }
@@ -60,13 +50,31 @@ button.inactive:hover, button.inactive :active {
     border-radius: 5px;
     font-size: 20px;
     padding: 14px;
+    width: 242px;
   }
 }
+button:hover, button :active {
+  background-color: grey;
+  color: white;
+}
+button.activated {
+  background-color: #009ADA;
+  color: #FFFFFF;
+}
+button.activated:hover {
+  background-color: #007BD4;
+}
+button.activated:active {
+  background-color: #007BD4;
+  color: black;
+}
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(12, [col-start] 1fr);
-  grid-column-gap: 20px;
+@media (min-width: 768px) {
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(12, [col-start] 1fr);
+    grid-column-gap: 20px;
+  }
 }
 
 .grid > * {
@@ -74,7 +82,6 @@ button.inactive:hover, button.inactive :active {
 }
 
 .screen {
-  position: fixed;
   width: 100vw;
   max-width: 850px;
   margin: 0 auto;
@@ -90,6 +97,13 @@ button.inactive:hover, button.inactive :active {
   flex: 1;
 }
 
+.left, .center, .right {
+  position: absolute;
+  width: 100%;
+  box-sizing: border-box;
+  transition: left 0.2s;
+}
+
 .center {
   left: 0;
 }
@@ -102,36 +116,30 @@ button.inactive:hover, button.inactive :active {
   left: 100vw;
 }
 
-.left, .center, .right {
-  position: absolute;
-  max-width: 100%;
-  transition: left 0.2s;
-  width: 100%;
-  box-sizing: border-box;
+.hidden {
+  display: none !important;
 }
 
 .side-padding {
-  padding: 0 9%;
+  padding-left: 9%;
+  padding-right: 9%;
 }
-@media (min-width: 768px) {
+@media (min-width: 910px) {
   .side-padding {
-    padding: 0;
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 
-.hidden {
-  display: none;
-}
-
 header {
-  width: 100%;
-  box-sizing: border-box;
   background-color: white;
-  padding: 15px 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 @media (min-width: 768px) {
   header {
-    padding: 15px 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
   }
 }
 header .brand {
@@ -141,15 +149,15 @@ header .brand {
   margin: auto;
 }
 header .brand .brand-left {
-  min-width: 85px;
   width: 18.55%;
+  min-width: 85px;
 }
 header .brand .brand-left img {
   width: 100%;
 }
 header .brand .brand-right {
-  min-width: 125px;
   width: 23.05%;
+  min-width: 125px;
 }
 header .brand .brand-right img {
   width: 100%;
@@ -159,19 +167,30 @@ header .brand .brand-right img {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  position: absolute;
-  height: 100%;
+  align-items: center;
+  padding-bottom: 10px;
+  min-height: 100%;
+}
+@media (min-width: 768px) {
+  .landing-page {
+    padding-bottom: 20px;
+  }
 }
 .landing-page .garage {
   max-width: 100%;
 }
+.landing-page .body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-around;
+}
 .landing-page h1 {
   margin: 20px 0;
+  text-align: left;
 }
 @media (min-width: 768px) {
   .landing-page h1 {
-    text-align: left;
-    margin: 70px 0 50px;
     font-size: 40px;
   }
 }
@@ -185,67 +204,53 @@ header .brand .brand-right img {
     grid-column: col-start 8/span 5;
   }
 }
-.landing-page .location, .landing-page .buttons {
-  margin: 20px 0;
-}
 .landing-page .location,
 .landing-page .date-and-time {
+  margin: 10px 0;
   display: flex;
   align-items: flex-start;
-  margin: 5px 0;
+  flex-direction: row;
 }
-@media (min-width: 768px) {
-  .landing-page .location,
-.landing-page .date-and-time {
-    flex-direction: column;
-    margin-bottom: 70px;
-  }
-}
-@media (min-width: 768px) {
-  .landing-page .location .header,
-.landing-page .date-and-time .header {
-    display: flex;
-    align-items: center;
-  }
-}
-.landing-page .location .header img,
-.landing-page .date-and-time .header img {
+.landing-page .location .icon img,
+.landing-page .date-and-time .icon img {
   width: 18px;
 }
 @media (min-width: 768px) {
-  .landing-page .location .header img,
-.landing-page .date-and-time .header img {
+  .landing-page .location .icon img,
+.landing-page .date-and-time .icon img {
     min-width: 60px;
-  }
-}
-.landing-page .location .header h2,
-.landing-page .date-and-time .header h2 {
-  display: none;
-  padding: 0;
-  margin: 0;
-  margin-left: 20px;
-}
-@media (min-width: 768px) {
-  .landing-page .location .header h2,
-.landing-page .date-and-time .header h2 {
-    display: inline-block;
-    font-size: 30px;
   }
 }
 .landing-page .location .text,
 .landing-page .date-and-time .text {
   margin-left: 30px;
 }
+.landing-page .location .text h2,
+.landing-page .date-and-time .text h2 {
+  display: none;
+  padding: 0;
+  margin: 0;
+  line-height: 60px;
+}
 @media (min-width: 768px) {
-  .landing-page .location .text,
-.landing-page .date-and-time .text {
-    margin-left: 0;
-    margin-top: 50px;
+  .landing-page .location .text h2,
+.landing-page .date-and-time .text h2 {
+    display: inline-block;
+    font-size: 30px;
   }
 }
 .landing-page .location .text span,
 .landing-page .date-and-time .text span {
   display: block;
+}
+@media (min-width: 768px) {
+  .landing-page .buttons {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+  }
 }
 .landing-page button {
   margin: 5px 0;
@@ -255,33 +260,24 @@ header .brand .brand-right img {
     margin: 0;
   }
 }
-@media (min-width: 768px) {
-  .landing-page .button-positive {
-    grid-column: col-start 3/span 4;
-  }
-}
-@media (min-width: 768px) {
-  .landing-page .button-negative {
-    grid-column: col-start 7/span 4;
-  }
-}
 
+.signup-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 5%;
+  height: 100%;
+}
 @media (min-width: 768px) {
   .signup-page h2 {
     font-size: 35px;
     font-weight: 300;
   }
 }
-.signup-page .form-container {
-  margin: 20px 0;
-}
 @media (min-width: 768px) {
   .signup-page .form-container {
     grid-column: col-start 3/span 8;
   }
-}
-.signup-page .form-container.negative {
-  margin-top: 80px;
 }
 .signup-page .form-container input {
   display: block;
@@ -301,9 +297,6 @@ header .brand .brand-right img {
   color: red;
   font-style: italic;
 }
-.signup-page .entourage {
-  margin: 15px 0;
-}
 @media (min-width: 768px) {
   .signup-page .entourage {
     grid-column: col-start 3/span 8;
@@ -322,20 +315,22 @@ header .brand .brand-right img {
 .signup-page .entourage #checkbox-invisible:checked ~ .form-container {
   opacity: 1;
 }
+.signup-page .entourage #checkbox-visible {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
 .signup-page .entourage #checkbox-visible img {
+  display: inline-block;
   background-color: white;
   border: 2px solid #009ADA;
   border-radius: 4px;
-  display: inline-block;
   width: 18px;
-  vertical-align: bottom;
   transition: all 0.3s;
+  margin-right: 18px;
 }
-.signup-page .entourage .text {
+.signup-page .entourage #checkbox-visible span {
   color: #009ADA;
-}
-.signup-page button {
-  margin-top: 70px;
 }
 @media (min-width: 768px) {
   .signup-page button {
@@ -348,11 +343,17 @@ header .brand .brand-right img {
   margin-top: 200px;
 }
 
-.confirmation-page .confirmation-negative {
-  margin: 100px 0;
+.confirmation-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
 }
-.confirmation-page .text-container {
-  margin: 30px 0;
+.confirmation-page .positive, .confirmation-page .negative {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 .confirmation-page .text-container span {
   display: inline-block;
