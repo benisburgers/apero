@@ -21,7 +21,6 @@ body {
 h1, h2, span, button, input, label {
   font-family: Helvetica;
   font-weight: 300;
-  color: black;
 }
 
 button {
@@ -97,11 +96,14 @@ color: white;
 
 // Fill whole viewport with screen
 .screen {
-  width: 100vw;
+  min-height: 100%;
+  position:fixed;
+  @media(min-width: $screen-max-width) {
+    position: static;
+  }
   max-width: $screen-max-width;
   //center your screen inside the viewport
   margin: 0 auto;
-  height: 100%;
   overflow-x: hidden;
   box-sizing: border-box;
   display: flex;
@@ -115,7 +117,6 @@ color: white;
 }
 
 .page {
-  position: fixed;
   display: flex;
   flex-direction: column;
   padding-bottom: 10px;

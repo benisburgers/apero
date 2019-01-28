@@ -6,7 +6,6 @@ body {
 h1, h2, span, button, input, label {
   font-family: Helvetica;
   font-weight: 300;
-  color: black;
 }
 
 button {
@@ -87,14 +86,19 @@ button.activated:active {
 }
 
 .screen {
-  width: 100vw;
+  min-height: 100%;
+  position: fixed;
   max-width: 850px;
   margin: 0 auto;
-  height: 100%;
   overflow-x: hidden;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
+}
+@media (min-width: 850px) {
+  .screen {
+    position: static;
+  }
 }
 
 .content {
@@ -103,7 +107,6 @@ button.activated:active {
 }
 
 .page {
-  position: fixed;
   display: flex;
   flex-direction: column;
   padding-bottom: 10px;

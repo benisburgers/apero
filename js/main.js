@@ -1,3 +1,4 @@
+
 //Create global variables
 
   //Create variables for me_form inputs
@@ -12,6 +13,8 @@
   var email_entourage = $("#email_entourage")
 
 $(document).ready(function(){
+
+
 
   //Page Flow: Hide and show different sections
     //open sign up page positive from landing page
