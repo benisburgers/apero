@@ -15,7 +15,6 @@ $screen-max-width: 850px;
 body {
   width: 100%;
   height: 100vh;
-  position: fixed;
 }
 
 //Universal rules
@@ -37,7 +36,6 @@ h1, h2 {
   @media(min-width: $medium-devices) {
     font-weight: bold;
   }
-  background: red;
 }
 
 span, input, label, button {
