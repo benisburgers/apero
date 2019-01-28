@@ -7,6 +7,7 @@ h1, h2, span, button, input, label {
   font-family: Helvetica;
   font-weight: 300;
   color: black;
+  background: green;
 }
 
 button {
