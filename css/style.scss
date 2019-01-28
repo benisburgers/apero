@@ -14,7 +14,8 @@ $screen-max-width: 850px;
 
 body {
   width: 100%;
-  height: 100%;
+  height: 100vh;
+  position: fixed;
 }
 
 //Universal rules
@@ -22,7 +23,6 @@ h1, h2, span, button, input, label {
   font-family: Helvetica;
   font-weight: 300;
   color: black;
-  background: green;
 }
 
 button {
@@ -37,6 +37,7 @@ h1, h2 {
   @media(min-width: $medium-devices) {
     font-weight: bold;
   }
+  background: red;
 }
 
 span, input, label, button {
@@ -102,7 +103,7 @@ color: white;
   max-width: $screen-max-width;
   //center your screen inside the viewport
   margin: 0 auto;
-  height: 100vh;
+  height: 100%;
   overflow-x: hidden;
   box-sizing: border-box;
   display: flex;
