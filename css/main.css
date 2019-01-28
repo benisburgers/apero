@@ -103,6 +103,7 @@ button.activated:active {
 }
 
 .page {
+  position: fixed;
   display: flex;
   flex-direction: column;
   padding-bottom: 10px;
